@@ -1,0 +1,23 @@
+<h2><?php echo $title; ?></h2>
+<?php echo $this->getContent() ?>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+	</tr>
+
+	<?php foreach ($contacts as $contact) { ?>
+		<tr>
+			<td><?php echo $contact->name ?></td>
+			<td><?php echo $contact->email ?></td>
+			<td><?php echo $contact->phone ?></td>
+			<td><?php echo $this->tag->linkTo('contacts/edit/'.$contact->id, 'Edit') ?></td>
+			<td><?php echo $this->tag->linkTo('contacts/delete/'.$contact->id, 'Delete') ?></td>
+		</tr>
+	<?php } ?>
+</table>
+
+</br>
+<?php echo $this->tag->linkTo('contacts/new/', 'Add New Contact') ?>
